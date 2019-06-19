@@ -4,7 +4,7 @@ Open localhost:3000 to see React app's content
 
 
 ## Note:    
-A few files need to be added with your personal credentials: 
+A few files need to be added with your personal credentials:
 
 In `tweet-sentiment-analysis/.env`:       
 ```javascript
