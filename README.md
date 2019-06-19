@@ -22,7 +22,7 @@ ACCESS_TOKEN_SECRET=*******
 In `tweet-sentiment-analysis/private.key`:
 ```javascript      
 -----BEGIN PRIVATE KEY-----     
-XYZ123****123XYZ    
+XYZ123****xxx123XYZ***    
 -----END PRIVATE KEY-----       
 ```
 
