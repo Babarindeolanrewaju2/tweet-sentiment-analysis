@@ -24,8 +24,8 @@ const client = new Twitter({
 const nexmo = new Nexmo({
   apiKey: process.env.API_KEY,
   apiSecret: process.env.API_SECRET,
-  applicationId: process.env.APPLICATION_ID,
-  privateKey: './private.key'
+  // applicationId: process.env.APPLICATION_ID,
+  // privateKey: './private.key'
 }, {debug: true});
 
 // Receive input and call Twitter API
@@ -78,6 +78,7 @@ app.post('/sendSMS', (req, res) => {
       } else {
         console.log(data);
       }
-    }
+    },
+  { useBasicAuth: true }
   );
 });
