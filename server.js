@@ -79,6 +79,6 @@ app.post('/sendSMS', (req, res) => {
         console.log(data);
       }
     },
-  { useBasicAuth: true }
+    { useBasicAuth: true }
   );
 });
