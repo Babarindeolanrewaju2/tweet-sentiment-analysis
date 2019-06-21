@@ -26,6 +26,7 @@ class TwitterName extends React.Component {
   }
 
   getTweet = (event) => {
+    console.log(this.state.userName)
     fetch('/twitter')
     .then(res => res.json())
     .then(tweetContent => this.setState({tweetContent}, () => console.log('tweet fetched: ', tweetContent)))
