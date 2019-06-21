@@ -3,10 +3,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Nexmo = require('nexmo');
 const Twitter = require('twitter');
+const path = require('path');
 
 dotenv.config();
 const app = express();
 app.use(bodyParser.json());
+app.use('/', routes);
+
+// heroku handling
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('clien/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(_dirname, 'client', 'build', 'index.html'));
+  })
+}
 
 // const port = 5000;
 const port = process.env.PORT || 5000;
