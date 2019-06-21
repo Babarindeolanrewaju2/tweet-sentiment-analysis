@@ -8,7 +8,6 @@ const path = require('path');
 dotenv.config();
 const app = express();
 app.use(bodyParser.json());
-app.use('/', routes);
 
 // heroku handling
 if (process.env.NODE_ENV === 'production') {
