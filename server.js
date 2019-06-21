@@ -24,16 +24,16 @@ app.listen(port, () => console.log(`server started on port ${port}`));
 
 // Twitter credentials
 const client = new Twitter({
-  consumer_key: 'gtbjEM4wCiqBDLXG6SEUTuXcD',
-  consumer_secret: 'JT0UvZAVltdAVaBNVvF1WJMxfbq1aa0iMc2leny8GbBnlohZgr',
-  access_token_key: '2905455355-nYx2pL8Th7TZga4ANYKRgHWnrfsaq9ySHNkGGbz',
-  access_token_secret: '9VuMVEcgGW5XxdE8NB0yGthkpByX3rTKnTIOXlfrfXy7u'
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token_key: process.env.ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
 // Nexmo credentials
 const nexmo = new Nexmo({
-  apiKey: 'f262335b',
-  apiSecret: '0eIn2WfMsgeTPufP',
+  apiKey: process.env.API_KEY,
+  apiSecret: process.env.API_SECRET,
   // applicationId: process.env.APPLICATION_ID,
   // privateKey: './private.key'
 }, {debug: true});
@@ -72,7 +72,7 @@ app.post('/sendSMS', (req, res) => {
   }
 
   //  Nexmo Messages API
-  const nexmoNumber = '13218210808'
+  const nexmoNumber = process.env.NEXMO_NUMBER
   nexmo.channel.send(
     { type: 'sms', number: toNumber }, // To
     { type: 'sms', number: nexmoNumber }, // From
