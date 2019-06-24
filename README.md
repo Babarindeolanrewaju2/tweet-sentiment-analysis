@@ -1,10 +1,8 @@
-### npm run dev
-Runs both server and client simultaneously
-Open localhost:3000 to see React app's content
-
-
-## Note:    
-A few files need to be added with your personal credentials:
+### clone repo:
+- run `npm install` in root of project && within the `/client` folder  
+- rename `.env-example` files to `.env` in both the root & `/client` folder 
+- add a `private.key` file to hold your Nexmo key in root of project  
+- Fill in the `.env` files with your personal credentials: 
 
 In `tweet-sentiment-analysis/.env`:       
 ```javascript
@@ -30,3 +28,7 @@ In `tweet-sentiment-analysis/client/.env`:
 ```javascript
 REACT_APP_RAPIDAPI_KEY=*******         
 ```
+
+### npm run dev
+Runs both server and client simultaneously by running `npm run dev`    
+Open localhost:3000 to see React app's content
