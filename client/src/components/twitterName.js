@@ -7,7 +7,7 @@ class TwitterName extends React.Component {
     this.state = {
       userName: '',
       tweetContent: '',
-  };
+    };
     this.senduserName = this.senduserName.bind(this);
     this.getTweet = this.getTweet.bind(this);
     this.resetuserName = this.resetuserName.bind(this);
@@ -26,7 +26,6 @@ class TwitterName extends React.Component {
   }
 
   getTweet = (event) => {
-    console.log(this.state.userName)
     fetch('/twitter')
     .then(res => res.json())
     .then(tweetContent => this.setState({tweetContent}, () => console.log('tweet fetched: ', tweetContent)))
@@ -41,19 +40,21 @@ class TwitterName extends React.Component {
   render() {
     return (
       <div>
-        <div className="ui input">
-          <input
-            placeholder="twitter name"
-            type="text"
-            value={this.state.userName}
-            onChange={(e) => this.setState({ userName: e.target.value})}
-            />
-        </div>
-        <br />
-        <button className="ui blue button" onClick={this.senduserName}>
-          find most recent tweet
-        </button>
-
+        <label>Enter a Twitter Handle and find the most recent tweet:
+          <br />
+          <div className="ui input">
+            <input
+              placeholder="twitter name"
+              type="text"
+              value={this.state.userName}
+              onChange={(e) => this.setState({ userName: e.target.value})}
+              />
+          </div>
+          <br />
+          <button className="ui blue button" onClick={this.senduserName}>
+            find most recent tweet
+          </button>
+        </label>
         <SentimentCalculate tweetContent={this.state.tweetContent} userName={this.state.userName} resetuserName={this.resetuserName}/>
       </div>
     )
